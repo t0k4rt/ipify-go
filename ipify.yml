@@ -1,0 +1,35 @@
+swagger: "2.0"
+info:
+  title: "Ipify api"
+  version: "1.0.0"
+host: api.ipify.org
+schemes:
+  - https
+
+tags:
+  - name: IP address
+    description: Get public ip address
+
+paths:
+  /:
+    get:
+      tags:
+        - IP address
+      summary: Returns public ip address
+      description: Optional extended description in Markdown.
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: format
+          description: data format
+          type: string
+          default: json
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            properties:
+              ip:
+                type: string
